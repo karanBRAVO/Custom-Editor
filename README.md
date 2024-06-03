@@ -1,31 +1,8 @@
-# Custom Editor
+# React + Vite
 
-This project includes the editor configuration. I have used `editor.js` as the base library.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Features
+Currently, two official plugins are available:
 
-- Easy Setup: use it directly in your application
-
-- Customization: customize as you wish
-
-## Usage
-
-Below steps have to be followed to use it in your application:
-
-- Get the complete code using `git`
-
-    ```bash
-    git clone https://github.com/karanBRAVO/Custom-Editor.git
-    ```
-
-## Preview
-
-Available soon...
-
-## Contribution
-
-This repository welcome all the contributors who follow the guidelines specified in the `contribution.md`.
-
-## License
-
-This project is licensed under the `MIT`.
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
