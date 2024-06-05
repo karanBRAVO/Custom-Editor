@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import "../styles/home.css";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -10,10 +11,14 @@ const Home = () => {
 
   return (
     <>
-      <div>
+      <div className="home-container">
         <h1>Welcome to KY-Editor</h1>
         <p>creating notes made easy</p>
-        <button type="button" onClick={handleClick}>
+        <button
+          type="button"
+          className="btn btn-border-3"
+          onClick={handleClick}
+        >
           Explore
         </button>
       </div>
