@@ -1,15 +1,17 @@
 import React, { useEffect, useRef, useState } from "react";
 import EditorJS from "@editorjs/editorjs";
 import DragDrop from "editorjs-drag-drop";
+import { EDJ_TOOLS } from "../components/custom-editor/Editor_Tools.js";
 import "../styles/editor.css";
 
 const INITIAL_DATA = {
   time: new Date().getTime(),
   blocks: [
     {
-      type: "paragraph",
+      type: "header",
       data: {
         text: "Heading",
+        level: 1,
       },
     },
   ],
@@ -28,7 +30,7 @@ const Editor = () => {
         editorInstance.current = editor;
       },
       data,
-      tools: {},
+      tools: EDJ_TOOLS,
       autofocus: true,
       onChange: async () => {
         const content = await editor.saver.save();
@@ -67,7 +69,9 @@ const Editor = () => {
     <>
       <div className="editor-container">
         <h1 className="top-heading">Custom Editor</h1>
-        <button className="saveBtn" onClick={handleSave}>Save</button>
+        <button className="saveBtn" onClick={handleSave}>
+          Save
+        </button>
         <div id="editorjs" className="editorjs"></div>
       </div>
     </>
