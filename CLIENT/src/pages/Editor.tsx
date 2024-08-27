@@ -10,9 +10,8 @@ import "@/styles/editor.css";
 
 // components
 import EditorToolbar from "@/components/EditorToolbar/EditorToolbar";
-import EditorFooter from "@/components/EditorFooter/EditorFooter";
 import EditorBubbleMenu from "@/components/EditorBubbleMenu/EditorBubbleMenu";
-import EditorFloadingMenu from "@/components/EditorFloatingMenu/EditorFloadingMenu";
+import EditorFloatingMenu from "@/components/EditorFloatingMenu/EditorFloatingMenu";
 import { CONTENT } from "@/pages/content";
 
 // extensions
@@ -51,6 +50,7 @@ import TextAlign from "@tiptap/extension-text-align";
 import History from "@tiptap/extension-history";
 import Placeholder from "@tiptap/extension-placeholder";
 import CharacterCount from "@tiptap/extension-character-count";
+import EditorCommandDialog from "@/components/EditorCommandDialog/EditorCommandDialog";
 
 const Editor = () => {
   const editor = useEditor({
@@ -127,17 +127,17 @@ const Editor = () => {
   if (!editor) return null;
 
   return (
-    <>
+    <div className="p-10">
       <EditorToolbar />
       <BubbleMenu editor={editor} tippyOptions={{ duration: 100 }}>
         <EditorBubbleMenu />
       </BubbleMenu>
       <FloatingMenu editor={editor} tippyOptions={{ duration: 100 }}>
-        <EditorFloadingMenu />
+        <EditorFloatingMenu />
       </FloatingMenu>
+      <EditorCommandDialog />
       <EditorContent editor={editor} />
-      <EditorFooter />
-    </>
+    </div>
   );
 };
 
