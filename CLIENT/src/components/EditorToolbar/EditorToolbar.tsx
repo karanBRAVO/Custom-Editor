@@ -26,7 +26,7 @@ const actions: { text: string; icon: IconType }[] = [
 
 const EditorToolbar = () => {
   return (
-    <div className="flex flex-row gap-2 m-1">
+    <div className="flex flex-row gap-2 items-center w-full flex-wrap">
       {actions.map((action, index) => (
         <TooltipProvider key={index}>
           <Tooltip>

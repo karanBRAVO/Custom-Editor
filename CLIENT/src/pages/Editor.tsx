@@ -6,13 +6,14 @@ import {
 } from "@tiptap/react";
 
 // styles
-import "@/styles/editor.css";
+// import "@/styles/editor.css";
 
 // components
 import EditorToolbar from "@/components/EditorToolbar/EditorToolbar";
 import EditorBubbleMenu from "@/components/EditorBubbleMenu/EditorBubbleMenu";
 import EditorFloatingMenu from "@/components/EditorFloatingMenu/EditorFloatingMenu";
 import { CONTENT } from "@/pages/content";
+import { Separator } from "@/components/ui/separator";
 
 // extensions
 import Document from "@tiptap/extension-document";
@@ -57,6 +58,12 @@ const Editor = () => {
     extensions: [
       Heading.configure({
         levels: [1, 2, 3, 4, 5, 6],
+        HTMLAttributes: (level: number) => {
+          if (level === 1) {
+            return { class: `font-black text-[30px]` };
+          }
+          return { class: `text-red-600` };
+        },
       }),
       Text,
       Paragraph,
@@ -127,16 +134,19 @@ const Editor = () => {
   if (!editor) return null;
 
   return (
-    <div className="p-10">
+    <div className="bg-white w-full min-h-screen">
       <EditorToolbar />
-      <BubbleMenu editor={editor} tippyOptions={{ duration: 100 }}>
-        <EditorBubbleMenu />
-      </BubbleMenu>
-      <FloatingMenu editor={editor} tippyOptions={{ duration: 100 }}>
-        <EditorFloatingMenu />
-      </FloatingMenu>
-      <EditorCommandDialog />
-      <EditorContent editor={editor} />
+      <Separator orientation="horizontal" className="my-4" />
+      <div>
+        <BubbleMenu editor={editor} tippyOptions={{ duration: 100 }}>
+          <EditorBubbleMenu />
+        </BubbleMenu>
+        <FloatingMenu editor={editor} tippyOptions={{ duration: 100 }}>
+          <EditorFloatingMenu />
+        </FloatingMenu>
+        <EditorCommandDialog />
+        <EditorContent editor={editor} />
+      </div>
     </div>
   );
 };
